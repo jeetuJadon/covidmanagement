@@ -10,9 +10,8 @@ public class CovidManagementService {
 	@Autowired
 	CovidManagementRepository covidManagementRepository;
 
-	public double calculateDiscountedPrice(String custType, double curentprice) throws Exception {
-      	return 0;
-		
+	public void geTotalCovidCases() throws Exception {
+
 	
 	}
 

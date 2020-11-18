@@ -1,9 +1,18 @@
 package com.covid.covidmanagement.model;
 
 import java.util.Date;
-import java.util.List;
 
 public class PatientDetailsDto {
+
+	private String patientName;
+	private Integer stateId;
+	private  Integer areaId;
+	private  Integer patientId;
+	private  Integer patientStatus;
+	private Date createDate;
+	private  Date updateDate;
+
+
 	public String getPatientName() {
 		return patientName;
 	}
@@ -60,14 +69,6 @@ public class PatientDetailsDto {
 		this.updateDate = updateDate;
 	}
 
-	private String patientName;
-	private Integer stateId;
-	private  Integer areaId;
-	private  Integer patientId;
-
-	private  Integer patientStatus;
-	private Date createDate;
-	private  Date updateDate;
 
 
 	@Override

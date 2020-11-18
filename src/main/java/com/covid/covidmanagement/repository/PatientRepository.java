@@ -18,7 +18,7 @@ public class PatientRepository {
    private  static final String INSERT_QUERY = "INSERT INTO T_PATIENT_DETAILS(PATIENT_NAME,COUNTRY_ID,AREA_ID,PATIENT_STATUS) VALUES " +
 		   "(?,?,?,?)";
 	private  static final  String UPDATE_PATIENT_STATUS =
-			"update T_PATIENT_DETAILS set PATIENT_STATUS = ? where COUNTRY_ID = ? AND AREA_ID = ?";
+			"update T_PATIENT_DETAILS set PATIENT_STATUS = ? where PATIENT_ID = ?";
 
 	public int savePatientDetails(PatientDetailsDto patientDto) {
 		return jdbcTemplate.update(INSERT_QUERY,
@@ -27,8 +27,8 @@ public class PatientRepository {
 
 
 	public void updatePatientStatus(PatientDetailsDto patientDto) {
-		int status = jdbcTemplate.update(UPDATE_PATIENT_STATUS, patientDto.getPatientId(),
-				patientDto.getStateId(),patientDto.getAreaId());
+		int status = jdbcTemplate.update(UPDATE_PATIENT_STATUS, patientDto.getPatientStatus()
+				, patientDto.getPatientId());
 		if(status != 0){
 			System.out.println("Employee data updated for ID " + patientDto.getPatientId());
 		}else{
@@ -39,10 +39,9 @@ public class PatientRepository {
 
 	public List<PatientDetailsDto> findPatientDetails() {
 
+		String sql = "SELECT * FROM T_PATIENT_DETAILS";
 
-			String sql = "SELECT * FROM T_PATIENT_DETAILS";
-
-			List<PatientDetailsDto> patientDetailsDtos = jdbcTemplate.query(
+		List<PatientDetailsDto> patientDetailsDtos = jdbcTemplate.query(
 					sql,
 					(rs,rownum)->{
 						PatientDetailsDto pto = new PatientDetailsDto();

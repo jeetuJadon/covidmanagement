@@ -48,7 +48,7 @@ public class PatientController {
 		responseHeaders.add("content-type", "application/json");
 		String errorMessage = "";
 		try {
-			patientId = patientService.savePatientDetails(patientDetailsDto);
+			 patientService.updatePatientStatus(patientDetailsDto);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			errorMessage = e.toString();
@@ -56,7 +56,7 @@ public class PatientController {
 		if (!errorMessage.equalsIgnoreCase("")) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorMessage);
 		} else {
-			return ResponseEntity.ok().headers(responseHeaders).body(patientId);
+			return ResponseEntity.ok().headers(responseHeaders).body("Success");
 		}
 	}
 

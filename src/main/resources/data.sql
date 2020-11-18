@@ -11,6 +11,13 @@ INSERT INTO T_COUNTRY_AREA(AREA_ID,AREA_NAME, COUNTRY_ID) VALUES
 (3,'Madhya Pradesh',1);
 
 
+
+INSERT INTO T_PATIENT_STATUS(STATUS_ID,STATUS_NAME,STATUS_DESC) VALUES
+(0,'Active','Active Patient Status'),
+(1,'Recovered','Active Patient Status'),
+(3,'Deceased','Deceased Patient Status');
+
+
 INSERT INTO T_PATIENT_DETAILS(PATIENT_NAME,COUNTRY_ID,AREA_ID,PATIENT_STATUS,REMARKS) VALUES
 ('Jeetu',1,1,0,'Dummy '),
 ('Jeetu1',1,1,0,'Dummy 2'),
